@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after {
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
+    --neutral-100: #E7F6F2;
+    --neutral-600: rgba(0, 0, 0, 0.6);
+    --danger: red;
+    --h1: 900 4rem "Inter"; 
+    --h3: 900 2.8rem "Inter";
+    --h4: 900 2.4rem "Inter";
+    --h5: bold 1.6rem "Inter";
+    --path: bold 2.4rem "Inter";
+    --error: bold 2.4rem "Inter";
+}
+
+.admin {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background: var(--bg);
+
+    .admin-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .admin-label {
+        font: var(--h1);
+        color: var(--neutral-100);
+        margin-bottom: 5.2rem;
+    }
+    .admin-input {
+        height: 4.8rem;
+        border-radius: 0.8rem;
+        font: var(--h3);
+        color: var(--neutral-600);
+        margin-bottom: 2.4rem;
+        padding-left: 1.6rem;
+        background: var(--neutral-100);
+    }
+    .admin-btn {
+        margin: 2.8rem 0 3.2rem 0;
+        width: 4.5rem;
+        aspect-ratio: 1;
+        background: var(--neutral-100);
+        border-radius: 0.8rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .admin-btn svg {
+        font-size: 2.4rem;
+        transform: translateX(0.2rem);
+    }
+    .admin-error {
+        font: var(--error);
+        color: var(--danger);
+        text-align: center;
+    }
+}
+
+.blackbox {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--bg);
+
+    .blackbox-row {
+        padding: 0 12.8rem 0 12.8rem;
+        margin: 4rem 0 5rem 0;
+        width: 100%;
+        height: 5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .blackbox-logo {
+            font: var(--h3);
+            color: var(--neutral-100);
+            display: flex; justify-content: center; align-items: center;
+        }
+        .blackbox-logo svg {
+            font-size: 4rem;
+            margin-right: 0.8rem;
+        }
+        .blackbox-about {
+            font: var(--h4);
+            color: var(--neutral-100);
+            cursor: pointer;
+        }
+    }
+
+    .blackbox-info {
+        padding: 0 12.8rem 0 12.8rem;
+        width: 100%;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+
+        .blackbox-path {
+            font: var(--path);
+            color: var(--neutral-100);
+        }
+        .blackbox-files svg {
+            font-size: 2.8rem;
+            color: var(--neutral-100);
+            cursor: pointer;
+        }
+    }
+
+    .blackbox-divider {
+        opacity: 0.6;
+        margin: 2.8rem 0 4.8rem 0;
+        height: 0.2rem;
+        width: calc(100vw - 25.6rem);
+        background: var(--neutral-100);
+        box-shadow: 0px 0px 4px 0px var(--neutral-100);
+    }
+
+    .blackbox-upload-file {
+        width: 100vw;
+        height: 100vh;
+        background: var(--neutral-600);
+        backdrop-filter: blur(1.2rem);
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .blackbox-form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blackbox-label {
+            font: var(--h1);
+            color: var(--neutral-100);
+            margin-bottom: 4rem;
+            padding: 1.2rem;
+        }
+
+        .blackbox-input-file input {
+            display: none;
+        }
+
+        .blackbox-input-url {
+            height: 4rem;
+            padding: 1.2rem;
+            border-radius: 0.8rem;
+            background: var(--neutral-100);
+            font: var(--h5);
+        }
+
+        .blackbox-input-file svg {
+            font-size: 2.4rem;
+        }
+
+        .blackbox-upload-btn, .blackbox-input-file {
+            margin: 2.8rem 2.4rem 3.2rem 0;
+            width: 4.5rem;
+            aspect-ratio: 1;
+            background: var(--neutral-100);
+            border-radius: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .blackbox-upload-btn svg {
+            font-size: 2.4rem;
+            transform: translateX(0.2rem);
+        }
+    }
+
+}
+
+.file {
+    color: var(--neutral-100);
+    font: var(--h5);
+    padding: 0.4rem 1.2rem 0.4rem 1.2rem;
+    background: transparent;
+    border: 0.2rem solid var(--neutral-100);
+    border-radius: 1.2rem;
+    box-shadow: 0px 0px 4px 2px var(--neutral-100);
+    text-decoration: none;
+
+}
