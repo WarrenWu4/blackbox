@@ -144,6 +144,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        color: var(--neutral-100);
+        font: var(--h1);
+        flex-direction: column;
 
         .blackbox-form {
             display: flex;
@@ -167,14 +170,16 @@
             border-radius: 0.8rem;
             background: var(--neutral-100);
             font: var(--h5);
+            margin-bottom: 2rem;
         }
 
         .blackbox-input-file svg {
             font-size: 2.4rem;
+            color: black;
         }
 
         .blackbox-upload-btn, .blackbox-input-file {
-            margin: 2.8rem 2.4rem 3.2rem 0;
+            margin: 0.8rem 2.4rem 3.2rem 0;
             width: 4.5rem;
             aspect-ratio: 1;
             background: var(--neutral-100);
@@ -190,12 +195,38 @@
         }
     }
 
+    .blackbox-content {
+        width: calc(100vw - 25.6rem);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 17.5rem);
+        gap: 2.4rem;
+        place-items: center;
+    }
+
+    .blackbox-del-confirm {
+        display: flex;
+        margin: 3.2rem;
+    }
+
+    .blackbox-del-btn {
+        width: 8rem;
+        height: 4rem;
+        margin: 3.2rem;
+        font: var(--error);
+        color: black;
+        border-radius: 0.4rem;
+        background: var(--neutral-100);
+        cursor: pointer;
+    }
+
 }
 
 .file {
+    max-width: 17.5rem;
+    width: fit-content;
     color: var(--neutral-100);
     font: var(--h5);
-    padding: 0.4rem 1.2rem 0.4rem 1.2rem;
+    padding: 0.8rem 1.6rem 0.8rem 1.6rem;
     background: transparent;
     border: 0.2rem solid var(--neutral-100);
     border-radius: 1.2rem;

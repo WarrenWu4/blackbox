@@ -6,7 +6,6 @@ import { ImArrowRight } from "react-icons/im";
 
 export default function Admin(props) {
 
-    //!make sure to remove local host domain in firebase project
     const navigate = useNavigate();
     const emailRef = useRef()
     const passRef = useRef()
