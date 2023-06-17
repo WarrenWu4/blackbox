@@ -18,7 +18,6 @@ export default function Admin(props) {
             setLoading(true);
             setError('')
             signInWithEmailAndPassword(auth, emailRef.current.value, passRef.current.value).then(() => {
-                props.setPermission(true);
                 navigate("/");
             }).catch(() => {
                 setError("Not a valid admin account. Permissions failed");

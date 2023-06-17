@@ -7,8 +7,38 @@ import { storage, db } from "../../firebase"
 import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage";
 import { collection, addDoc, getDocs, getDoc, doc, deleteDoc } from "firebase/firestore";
 import File from "./file";
+import { useNavigate } from "react-router-dom";
 
-export default function Blackbox(props) {
+export default function Blackbox() {
+
+    const nav = useNavigate()
+    const [admin, setAdmin] = useState(false);
+
+    useEffect(() => {
+
+        const getToken = async () => {
+
+            // todo display loading screen while authenticating
+
+            const token = localStorage.getItem("blackbox_id");
+            if (token === null) {
+                nav("/");
+            }
+            else {
+                const user = await getDoc(doc(db, "users", token))
+                if (!(user.exists())) {
+                    nav("/");
+                }
+                else {
+                    // set user perms
+                    setAdmin(user.data().admin)
+                }
+            }
+        }
+
+        getToken();
+
+    }, [])
 
     // references to get input values
     const urlRef = useRef();
@@ -29,7 +59,7 @@ export default function Blackbox(props) {
     const uploadData = async (e) => {
         e.preventDefault()
         // uploading requires admin perms
-        if (props.admin) {
+        if (admin) {
             // if there's a url --> store in firestore
             if(urlRef.current.value !== "" && nameRef.current.value !== "") {
                 console.log("UPLOADING LINKS......\n")
@@ -71,7 +101,7 @@ export default function Blackbox(props) {
     // takes in an id and deletes it from firestore as well as storage if from "uploads" section
     const deleteData = async () => {
         //requires admin perms
-        if (props.admin) {
+        if (admin) {
             // get data from id
             const docu = await getDoc(doc(db, "data", delId))
             const type = docu.data().type;
@@ -137,7 +167,7 @@ export default function Blackbox(props) {
                 <div className="blackbox-path">
                     Root/
                 </div>
-                {props.admin &&
+                {admin &&
                     <div className="blackbox-files" onClick={() => setAddFile(true)}>
                         <FaFileUpload/>
                     </div>
