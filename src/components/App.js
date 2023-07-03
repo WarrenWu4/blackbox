@@ -1,6 +1,6 @@
 import React from "react";
 import Admin from "./admin";
-import Blackbox from "./blackbox/blackbox";
+import Blackbox from "./blackbox";
 import Access from "./access";
 import { BrowserRouter, Routes, Route} from "react-router-dom"
 import { useState } from "react"

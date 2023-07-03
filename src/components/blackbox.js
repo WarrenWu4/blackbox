@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Modal } from "@mui/material";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 import { getDocs, collection } from "firebase/firestore";
 
 import { BsThreeDotsVertical, BsFileEarmarkPlay } from "react-icons/bs";
