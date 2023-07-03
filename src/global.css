@@ -4,7 +4,6 @@
 @tailwind utilities;
 
 *, *::before, *::after {
-    font-size: 10px;
     margin: 0;
     padding: 0;
     border: 0;
@@ -13,28 +12,29 @@
     font-family: "Inter";
 }
 
-:root {
-    --bg: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
-    --neutral-100: #E7F6F2;
-    --neutral-600: rgba(0, 0, 0, 0.6);
-    --danger: red;
-    --h1: 900 4rem "Inter"; 
-    --h3: 900 2.8rem "Inter";
-    --h4: 900 2.4rem "Inter";
-    --h5: bold 1.6rem "Inter";
-    --path: bold 2.4rem "Inter";
-    --error: bold 2.4rem "Inter";
+html {
+    font-size: 10px;
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.95) 100%);
+    overflow-x: hidden;
 }
+
+/* scroll bar */
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+::-webkit-scrollbar-track {
+  background: black;
+}
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 1.6rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
 
 .admin {
     width: 100vw;
