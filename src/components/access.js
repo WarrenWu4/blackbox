@@ -75,7 +75,6 @@ export default function Access() {
         // otherwise trigger failure code
         else {
             setError(true);
-            console.log(process.env.REACT_APP_ACCESS_CODE)
         }
 
         // reset input in form
