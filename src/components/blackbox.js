@@ -7,7 +7,7 @@ import { BsThreeDotsVertical, BsFileEarmarkPlay } from "react-icons/bs";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { HiOutlineHome, HiSortAscending } from "react-icons/hi";
 
-export default function Blackbox() {
+export default function Blackbox({role, name}) {
 
     const [isLoadingData, setIsLoadingData] = useState(true);
     const [data, setData] = useState()
@@ -28,11 +28,13 @@ export default function Blackbox() {
         <>
             {!isLoadingData && <div className="w-screen min-h-screen flex flex-col items-center px-[3.2rem] py-[4rem] bg-black overflow-x-hidden">
                 
+                <span className="text-white text-[2.4rem] font-bold flex items-center mb-[4rem]">Hello&nbsp;<span className="text-[#4c9671]">{name}</span> <img src="./default.png" alt="default_logo" className="w-[4.8rem] aspect-square ml-[1.2rem] rounded-[0.8rem] bg-glass p-[0.8rem]"/></span>
+
                 {data.docs.map((doc) =>
                     <FileCard key={doc.id} name={doc.data()["name"]} fileType={doc.data()["type"]} source={doc.data()["source"]}/>
                 )}
 
-                <Controls/>
+                {(role === "admin") && <Controls/>}
 
             </div>}
         </>
@@ -48,9 +50,9 @@ const FileCard = ({name, fileType, source}) => {
     return (
         <a href={source} target="_blank" className="max-w-[64rem] w-full h-[5.6rem] backdrop-blur-[2rem] rounded-[0.8rem] bg-glass flex justify-between items-center text-white px-[2.4rem] mb-[1.6rem]">
 
-            <div className="text-[2rem] font-semibold flex items-center">
+            <div className="text-[1.6rem] flex items-center">
                 <BsFileEarmarkPlay className="text-[2rem] mr-[0.8rem]"/>
-                <span className="flex text-[2rem] overflow-hidden text-ellipsis whitespace-nowrap">{name}</span>
+                <span className="flex overflow-hidden text-ellipsis whitespace-nowrap">{name}</span>
             </div>
 
             <button onClick={handleClick} type="button">
